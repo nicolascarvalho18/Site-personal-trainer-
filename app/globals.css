@@ -287,3 +287,7 @@ section[id]{scroll-margin-top:112px}
 .faq-answer{color:#C6C2BD}
 .faq-answer p,.faq-answer li{color:#C6C2BD}
 .faq-answer li:before{color:#D85F32}
+
+/* Opções nativas do seletor sempre legíveis ao abrir a lista. */
+.contact select option{background:#F7F7F5;color:#171717}
+.contact select option:checked{background:#D85F32;color:#FFF}
