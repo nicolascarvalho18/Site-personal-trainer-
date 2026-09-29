@@ -207,3 +207,8 @@ section[id]{scroll-margin-top:112px}
   .nav>a:not(.header-cta):after{display:none}
   .nav .header-cta{margin-top:10px;min-height:52px;padding:14px 22px}
 }
+
+/* Texto editorial da foto: centralizado e mais alto no hero mobile. */
+@media (max-width: 700px){
+  .hero-editorial.bottom{display:block;top:55%;bottom:auto;left:50%;width:max-content;max-width:calc(100vw - 80px);transform:translate(-50%,-50%);text-align:center}
+}
