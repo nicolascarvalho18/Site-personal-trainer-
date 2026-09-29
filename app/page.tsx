@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight, ArrowUpRight, BarChart3, CalendarDays, Dumbbell, Menu, MessageCircle, X } from "lucide-react";
 
 const whatsapp = "#contato";
@@ -24,13 +24,41 @@ function CTA({ children, outline = false, href = "#contato" }: { children: React
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [faqOpen, setFaqOpen] = useState<number | null>(0);
+  const [activeSection, setActiveSection] = useState("inicio");
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateHeader = () => setHasScrolled(window.scrollY > 16);
+    const sections = nav
+      .map(([, id]) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveSection(visible.target.id);
+      },
+      { rootMargin: "-35% 0px -50% 0px", threshold: [0.05, 0.2, 0.5] },
+    );
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    sections.forEach((section) => observer.observe(section));
+    return () => {
+      window.removeEventListener("scroll", updateHeader);
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <main>
-      <header className="site-header">
+      <header className={hasScrolled ? "site-header is-scrolled" : "site-header"}>
         <div className="container header-inner">
           <Logo />
           <nav className={menuOpen ? "nav open" : "nav"} aria-label="Navegação principal">
-            {nav.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}
+            {nav.map(([label, id]) => <a key={id} className={activeSection === id ? "active" : undefined} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}
             <a className="header-cta" href="#contato" onClick={() => setMenuOpen(false)}>Agendar avaliação</a>
           </nav>
           <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Alternar menu">{menuOpen ? <X /> : <Menu />}</button>

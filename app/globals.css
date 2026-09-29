@@ -170,3 +170,40 @@ html{overflow-x:clip}body{min-width:320px;overflow-x:clip}main{max-width:100%;ov
 @media (max-width: 700px){
   .faq .container{width:calc(100% - 16px)}
 }
+
+/* Header fixo: maior, legível e integrado ao hero antes do scroll. */
+.site-header{position:fixed;top:0;left:0;width:100%;height:clamp(88px,6.5vw,96px);min-height:88px;z-index:1000;background:transparent;backdrop-filter:none;box-shadow:none;transition:background .3s ease,backdrop-filter .3s ease,box-shadow .3s ease}
+.site-header.is-scrolled{background:rgba(8,8,8,.88);backdrop-filter:blur(12px);box-shadow:0 5px 18px rgba(0,0,0,.16)}
+.site-header .header-inner{display:flex;align-items:center;height:100%}
+.site-header .logo{font-size:clamp(2rem,2.4vw,2.35rem);line-height:.68;letter-spacing:-.09em}
+.site-header .logo span{margin-top:8px;font-size:.54rem;letter-spacing:.08em}
+.nav{gap:clamp(28px,2.5vw,42px);align-items:center}
+.nav>a:not(.header-cta){position:relative;min-height:44px;display:inline-flex;align-items:center;color:#ddddda;font-size:clamp(15px,1.1vw,17px);font-weight:500;letter-spacing:.02em}
+.nav>a:not(.header-cta):after{content:"";position:absolute;right:0;bottom:-13px;left:0;height:2px;background:#D85F32;opacity:0;transition:opacity .2s ease}
+.nav>a:not(.header-cta):hover,.nav>a.active{color:#D85F32}
+.nav>a:not(.header-cta).active:after{opacity:1}
+.nav>a:first-child:not(.active):after{opacity:0}
+.site-header .header-cta{height:auto;min-height:56px;padding:17px 28px;font-size:14px;font-weight:700;letter-spacing:.02em}
+section[id]{scroll-margin-top:112px}
+
+@media (max-width: 1200px){
+  .site-header{height:84px;min-height:84px}
+  .site-header .logo{font-size:clamp(1.8rem,2.8vw,2.1rem)}
+  .site-header .logo span{font-size:.48rem}
+  .nav{gap:clamp(22px,2.2vw,30px)}
+  .nav>a:not(.header-cta){font-size:15px}
+  .site-header .header-cta{min-height:52px;padding:15px 20px;font-size:13px}
+  section[id]{scroll-margin-top:100px}
+}
+
+@media (max-width: 900px){
+  .site-header{height:76px;min-height:76px;background:transparent;backdrop-filter:none}
+  .site-header.is-scrolled{background:rgba(8,8,8,.88);backdrop-filter:blur(12px)}
+  .site-header .header-inner{width:min(calc(100% - 40px),700px)}
+  .site-header .logo{font-size:clamp(1.55rem,4vw,1.85rem)}
+  .site-header .logo span{font-size:.43rem}
+  .nav{top:76px;gap:0}
+  .nav>a:not(.header-cta){font-size:16px}
+  .nav>a:not(.header-cta):after{display:none}
+  .nav .header-cta{margin-top:10px;min-height:52px;padding:14px 22px}
+}
