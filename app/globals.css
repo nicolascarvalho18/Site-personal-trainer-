@@ -273,3 +273,17 @@ section[id]{scroll-margin-top:112px}
   .about-profile .about-copy dl div{grid-template-columns:1fr;gap:7px;padding:17px 0}
   .about-profile .about-copy dd{font-size:17px}
 }
+
+/* FAQ escura com contraste consistente em desktop e mobile. */
+.faq{background:#111;color:#F7F7F5}
+.faq h2,.faq-row{color:#F7F7F5}
+.faq-intro>p:not(.eyebrow){color:#B7B3AE}
+.faq-item,.faq-item.active{background:#181818;border-color:rgba(255,255,255,.16)}
+.faq-item.active{border-color:#D85F32}
+.faq-row{background:transparent}
+.faq-item.active .faq-row{border-left-color:#D85F32}
+.faq-icon{border-color:rgba(255,255,255,.28);color:#F7F7F5}
+.faq-item.active .faq-icon{border-color:#D85F32;color:#D85F32}
+.faq-answer{color:#C6C2BD}
+.faq-answer p,.faq-answer li{color:#C6C2BD}
+.faq-answer li:before{color:#D85F32}
