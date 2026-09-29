@@ -165,3 +165,8 @@ html{overflow-x:clip}body{min-width:320px;overflow-x:clip}main{max-width:100%;ov
 /* Marca um pouco mais presente, mantendo a folga do menu em telas pequenas. */
 .logo{font-size:clamp(1.42rem,2vw,1.68rem);line-height:.68}
 .logo span{font-size:.42rem}
+
+/* FAQ no mobile: somente um respiro discreto entre o conteúdo e a tela. */
+@media (max-width: 700px){
+  .faq .container{width:calc(100% - 16px)}
+}
