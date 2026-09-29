@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowUpRight, BarChart3, CalendarDays, Dumbbell, Menu, MessageCircle, X } from "lucide-react";
 
 const whatsapp = "#contato";
@@ -26,6 +26,9 @@ export default function Home() {
   const [faqOpen, setFaqOpen] = useState<number | null>(0);
   const [activeSection, setActiveSection] = useState("inicio");
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [activeResult, setActiveResult] = useState(0);
+  const [resultsVisible, setResultsVisible] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateHeader = () => setHasScrolled(window.scrollY > 16);
@@ -51,6 +54,27 @@ export default function Home() {
       observer.disconnect();
     };
   }, []);
+
+  useEffect(() => {
+    const results = document.getElementById("resultados");
+    if (!results) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setResultsVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.18 });
+    observer.observe(results);
+    return () => observer.disconnect();
+  }, []);
+
+  const updateActiveResult = () => {
+    const wrapper = resultsRef.current;
+    const card = wrapper?.querySelector<HTMLElement>(".case");
+    if (!wrapper || !card) return;
+    const gap = 14;
+    setActiveResult(Math.max(0, Math.min(2, Math.round(wrapper.scrollLeft / (card.offsetWidth + gap)))));
+  };
 
   return (
     <main>
@@ -95,8 +119,11 @@ export default function Home() {
 
       <section className="results" id="resultados">
         <div className="container results-head"><div><p className="eyebrow">RESULTADOS</p><h2>Evolução construída<br />com consistência.</h2></div><p>Resultados reais serão incluídos quando as fotos e informações dos alunos forem disponibilizadas.</p></div>
-        <div className="container case-scroll">
+        <div ref={resultsRef} className={resultsVisible ? "container case-scroll is-visible" : "container case-scroll"} onScroll={updateActiveResult}>
           {["Aluno 01","Aluno 02","Aluno 03"].map((name,i)=><article className="case" key={name}><div className="case-visual"><span>ANTES</span><i /><span>DEPOIS</span></div><h3>{name}</h3><dl><div><dt>Objetivo</dt><dd>{i === 1 ? "Hipertrofia" : "Emagrecimento"}</dd></div><div><dt>Período</dt><dd>[INSERIR]</dd></div><div><dt>Resultado</dt><dd>[INSERIR]</dd></div></dl></article>)}
+        </div>
+        <div className="result-indicators" aria-label="Navegação dos resultados">
+          {[0, 1, 2].map((index) => <span key={index} className={activeResult === index ? "active" : undefined} aria-hidden="true" />)}
         </div>
       </section>
 
