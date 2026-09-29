@@ -322,3 +322,8 @@ section[id]{scroll-margin-top:112px}
   .hero-copy h1{font-size:clamp(43px,12vw,52px)}
   .hero-copy .intro{font-size:16px}
 }
+
+@media (max-width: 700px){
+  .hero-editorial.bottom{display:block;top:58%;bottom:auto;left:8%;width:auto;max-width:145px;transform:none;text-align:left;font-size:clamp(10px,2.8vw,12px);line-height:1.65;letter-spacing:.22em}
+  .hero-editorial.bottom:after{margin-top:13px}
+}
