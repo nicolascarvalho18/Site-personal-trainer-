@@ -127,3 +127,14 @@ html{overflow-x:clip}body{min-width:320px;overflow-x:clip}main{max-width:100%;ov
   .hero .availability{grid-template-columns:1fr 1fr}.availability span:last-child{grid-column:span 2}
   .faq{padding-left:0;padding-right:0}.faq .container{width:calc(100% - 32px)}
 }
+
+/* Serviço em destaque: título maior, sem perder a leitura em telas pequenas. */
+.services .section-heading h2{max-width:780px;font-size:clamp(62px,5.8vw,94px);line-height:.94;letter-spacing:-.05em}
+
+@media (max-width: 760px){
+  .services .section-heading h2{font-size:clamp(48px,12vw,64px);line-height:.96}
+}
+
+@media (max-width: 540px){
+  .services .section-heading h2{font-size:48px;line-height:.97}
+}
