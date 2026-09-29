@@ -154,3 +154,10 @@ html{overflow-x:clip}body{min-width:320px;overflow-x:clip}main{max-width:100%;ov
   .intro-grid h2{font-size:clamp(44px,12vw,56px);line-height:.98}
   .intro-description p{font-size:clamp(17px,4.6vw,19px);line-height:1.65}
 }
+
+/* Foto principal mais contida: mostra a composição completa em qualquer tela. */
+.hero-image img{width:92%;height:86%;max-width:none;margin:0 auto;object-fit:contain;object-position:center bottom;transform:none}
+
+@media (max-width: 700px){
+  .hero-image img{width:88%;height:84%;margin:0 auto;object-position:center bottom}
+}
