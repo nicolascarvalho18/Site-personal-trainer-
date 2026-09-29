@@ -80,6 +80,25 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(
+      ".intro-grid, .pillars, .about-grid, .method > .container, .section-heading, .service-grid, .results-head, .case-scroll, .testimonial-grid, .plans > .container, .faq-grid, .contact-grid, footer",
+    ));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    elements.forEach((element) => {
+      element.classList.add("scroll-reveal");
+      observer.observe(element);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   const updateActiveResult = () => {
     const wrapper = resultsRef.current;
     const card = wrapper?.querySelector<HTMLElement>(".case");
