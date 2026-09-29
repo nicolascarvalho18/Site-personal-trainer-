@@ -138,3 +138,19 @@ html{overflow-x:clip}body{min-width:320px;overflow-x:clip}main{max-width:100%;ov
 @media (max-width: 540px){
   .services .section-heading h2{font-size:48px;line-height:.97}
 }
+
+/* Intro: reforça a hierarquia tipográfica sem alterar a composição da seção. */
+.intro-grid{grid-template-columns:1.25fr .9fr;gap:80px}
+.intro-grid h2{max-width:760px;font-size:clamp(68px,5.8vw,96px);line-height:.96}
+.intro-description p{max-width:620px;font-size:clamp(18px,1.55vw,23px);line-height:1.68}
+
+@media (max-width: 900px){
+  .intro-grid{grid-template-columns:1fr;gap:32px}
+  .intro-grid h2{max-width:720px;font-size:clamp(54px,8vw,78px)}
+  .intro-description p{max-width:640px;font-size:clamp(18px,2.6vw,21px)}
+}
+
+@media (max-width: 540px){
+  .intro-grid h2{font-size:clamp(44px,12vw,56px);line-height:.98}
+  .intro-description p{font-size:clamp(17px,4.6vw,19px);line-height:1.65}
+}
