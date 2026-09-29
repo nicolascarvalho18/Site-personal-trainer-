@@ -292,3 +292,28 @@ section[id]{scroll-margin-top:112px}
 /* Opções nativas do seletor sempre legíveis ao abrir a lista. */
 .contact select option{background:#F7F7F5;color:#171717}
 .contact select option:checked{background:#D85F32;color:#FFF}
+
+/* Hero mobile: mesma identidade do desktop, em uma composição sem sobreposições. */
+@media (max-width: 700px){
+  .hero{min-height:0;height:auto;padding:76px 0 0;background:#0D0D0D}
+  .hero-grid{display:grid;grid-template-columns:1fr;width:100%;min-height:0}
+  .hero-watermark,.hero-lines,.hero-editorial{display:none}
+  .hero-image{position:relative;z-index:0;inset:auto;order:0;width:100%;height:360px;min-height:0;overflow:hidden;opacity:1;background-image:url('/images/hero-gym-bg.png');background-position:center;background-size:cover}
+  .hero-image:after{background:linear-gradient(0deg,#0D0D0D 0%,rgba(13,13,13,.08) 42%,rgba(13,13,13,.12) 100%)}
+  .hero-image img{display:block;width:88%;height:94%;max-width:none;margin:0 auto;object-fit:contain;object-position:center bottom;transform:none;opacity:1;animation:none}
+  .hero-copy{display:block;order:1;min-height:0;max-width:none;padding:30px 20px 52px;transform:none;background:#0D0D0D}
+  .hero-copy .eyebrow{margin:0 0 16px;font-size:10px;letter-spacing:.14em}
+  .hero-copy .eyebrow span{display:inline;margin:0;color:#C4BEB8}
+  .hero-copy .eyebrow i{display:inline-block}
+  .hero-copy h1{max-width:620px;margin:0 0 18px;font-size:clamp(46px,12vw,60px);line-height:.94;letter-spacing:-.055em}
+  .hero-copy .intro{max-width:600px;font-size:17px;line-height:1.58}
+  .hero-actions{display:flex;flex-direction:column;align-items:stretch;gap:11px;margin:27px 0 0}
+  .hero-actions .cta-button{width:100%;min-height:54px;justify-content:center}
+}
+
+@media (max-width: 390px){
+  .hero-image{height:330px}
+  .hero-copy{padding:27px 18px 46px}
+  .hero-copy h1{font-size:clamp(43px,12vw,52px)}
+  .hero-copy .intro{font-size:16px}
+}
