@@ -155,7 +155,6 @@ export default function Home() {
       <section className="contact" id="contato"><div className="container contact-grid"><div><p className="eyebrow">CONTATO</p><h2>Vamos conversar sobre seus objetivos?</h2><p>Conte o que você busca. O primeiro passo é entender a sua rotina e encontrar o melhor caminho para começar.</p><div className="contact-links"><a href={whatsapp}>WhatsApp <ArrowRight size={15}/></a><a href="#">Instagram <ArrowRight size={15}/></a></div></div><form onSubmit={(e)=>e.preventDefault()}><label>Nome<input required placeholder="Seu nome" /></label><label>WhatsApp<input required placeholder="(00) 00000-0000" /></label><label>Objetivo<select defaultValue=""><option value="" disabled>Selecione seu objetivo</option><option>Emagrecimento</option><option>Hipertrofia</option><option>Condicionamento</option><option>Iniciante</option><option>Outro</option></select></label><label className="wide">Mensagem<textarea placeholder="Conte um pouco sobre o seu objetivo" /></label><button className="form-button">Enviar mensagem <ArrowRight size={15}/></button></form></div></section>
 
       <footer><div className="container footer-inner"><Logo/><div>{nav.slice(0,4).map(([label,id])=><a key={id} href={`#${id}`}>{label}</a>)}</div><p>CREF [INSERIR] · © {new Date().getFullYear()} Erick Personal Trainer</p></div></footer>
-      <div className="mobile-bar"><a href="#contato">Agendar</a><a href={whatsapp}>WhatsApp</a></div>
     </main>
   );
 }
