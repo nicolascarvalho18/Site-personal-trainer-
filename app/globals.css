@@ -161,3 +161,7 @@ html{overflow-x:clip}body{min-width:320px;overflow-x:clip}main{max-width:100%;ov
 @media (max-width: 700px){
   .hero-image img{width:88%;height:84%;margin:0 auto;object-position:center bottom}
 }
+
+/* Marca um pouco mais presente, mantendo a folga do menu em telas pequenas. */
+.logo{font-size:clamp(1.42rem,2vw,1.68rem);line-height:.68}
+.logo span{font-size:.42rem}
