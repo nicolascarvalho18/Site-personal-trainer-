@@ -238,6 +238,7 @@ section[id]{scroll-margin-top:112px}
 /* Depoimentos com leitura mais presente, mantendo o mesmo desenho da seção. */
 .testimonial-grid blockquote{font-size:clamp(30px,2.55vw,42px);line-height:1.2}
 .testimonial-grid cite{font-size:14px}
+.testimonial-grid>.eyebrow{font-size:clamp(14px,1.05vw,17px);letter-spacing:.18em}
 
 @media (max-width: 700px){
   .testimonial-grid blockquote{font-size:clamp(26px,7.2vw,34px);line-height:1.24}
