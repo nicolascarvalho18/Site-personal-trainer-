@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://site-personal-trainer-lime.vercel.app/sitemap.xml

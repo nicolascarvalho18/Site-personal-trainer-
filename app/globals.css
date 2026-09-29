@@ -293,6 +293,11 @@ section[id]{scroll-margin-top:112px}
 .contact select option{background:#F7F7F5;color:#171717}
 .contact select option:checked{background:#D85F32;color:#FFF}
 
+/* Estados de formulário e páginas técnicas. */
+.form-error{display:block;margin-top:6px;color:#FF9A72;font-size:13px;font-weight:500}.form-status{grid-column:span 2;margin:0;color:#FF9A72;font-size:14px}.form-status.success{color:#A7D7AF}.form-button:disabled{cursor:wait;opacity:.7}.form-honeypot{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.legal-page,.not-found{min-height:100svh;padding:120px 24px;background:#111;color:#F7F7F5}.legal-content{width:min(760px,100%);margin:0 auto}.legal-back{display:inline-flex;margin-bottom:50px;color:#F7F7F5;text-decoration:none}.legal-content h1,.not-found h1{font-size:clamp(48px,7vw,86px);line-height:.94;margin-bottom:28px}.legal-content h2{margin:42px 0 13px;font-size:clamp(25px,3vw,36px)}.legal-content p,.not-found p{max-width:680px;color:#B7B3AE;font-size:18px;line-height:1.65}.legal-updated{margin-top:48px;font-size:14px!important}.not-found{display:grid;place-items:center;text-align:center}.not-found>div{max-width:700px}.not-found p{margin-inline:auto}.not-found .cta-button{margin-top:22px}
+@media(max-width:540px){.form-status{grid-column:span 1}.legal-page,.not-found{padding:100px 20px}.legal-content p,.not-found p{font-size:16px}}
+
 /* Hero mobile: mesma identidade do desktop, em uma composição sem sobreposições. */
 @media (max-width: 700px){
   .hero{min-height:0;height:auto;padding:76px 0 0;background:#0D0D0D}
