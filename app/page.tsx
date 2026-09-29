@@ -93,7 +93,18 @@ export default function Home() {
 
       <section className="intro-section"><div className="container intro-grid"><div><p className="intro-label"><span />COMO FUNCIONA</p><h2>Treinar melhor<br />começa com um<br />plano<span>.</span></h2></div><div className="intro-description"><p>Cada pessoa possui uma rotina, histórico e objetivo diferentes. O acompanhamento é estruturado para que cada treino faça sentido dentro da sua realidade.</p></div></div><div className="container pillars"><div><b>01</b><h3>Planejamento</h3><p>Estratégia de treino individual.</p></div><div><b>02</b><h3>Execução</h3><p>Orientação, técnica e segurança.</p></div><div><b>03</b><h3>Evolução</h3><p>Acompanhamento e ajustes.</p></div></div></section>
 
-      <section className="about about-art" id="sobre"><img src="/images/about-erick-full.png" alt="Erick Personal Trainer: apresentação, especialidade e atendimento" /></section>
+      <section className="about about-profile" id="sobre">
+        <div className="container about-grid">
+          <div className="about-image"><img src="/images/about-erick-flex.png" alt="Erick Personal Trainer em uma academia" /></div>
+          <div className="about-copy">
+            <p className="eyebrow">SOBRE</p>
+            <h2>Erick<br />Personal Trainer</h2>
+            <p>Meu trabalho não é apenas montar exercícios. É entender como você treina, quais são suas limitações e onde quer chegar.</p>
+            <p>A partir disso, desenvolvo uma estratégia de treinamento que possa ser mantida no longo prazo, com ajustes conforme sua evolução.</p>
+            <dl><div><dt>Atendimento</dt><dd>Presencial e online</dd></div><div><dt>Especialidade</dt><dd>Treinamento individualizado</dd></div></dl>
+          </div>
+        </div>
+      </section>
 
       <section className="method" id="metodo">
         <div className="container">
